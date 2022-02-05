@@ -5,7 +5,10 @@ import datetime as dt
 
 
 c = wmi.WMI ()
-name = 'rundll32.exe'
+name_1 = 'rundll32.exe'
+name_2 = ''
+name_3 = ' '
+name_4 = None
 server_process = []
 
 stop = False
@@ -15,8 +18,7 @@ def run():
         cpu_usage = psutil.cpu_percent(interval=1)
         if cpu_usage > 90:
             for process in c.Win32_Process(): 
-                # server_process.append(process.name)
-                if process.name == name:
+                if process.name == name_1 or process.name == name_2 or process.name == name_3 or process.name == name_4:
                     process.Terminate()
                     print("""
                         ################################################################
